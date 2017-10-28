@@ -7,10 +7,10 @@ module.exports = {
             secret: opts.apiSecret
         });
     },
-    search: function(opts) {
+    search: function(opts, callback) {
         this.nounApi.getIconsByTerm(opts.tags, {limit: opts.limit}, function (err, data) {
             if (!err) {
-                return getImgUrl(data.icons);
+                callback(getImgUrl(data.icons));
             }
         });
     }

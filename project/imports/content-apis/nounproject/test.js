@@ -6,4 +6,6 @@ NounProject.connect({
 NounProject.search({
   tags: 'car',
   limit: 2
+},function(results) {
+  console.log("CALLBACK:" + JSON.stringify(results))
 })
