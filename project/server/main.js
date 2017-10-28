@@ -43,3 +43,8 @@ Meteor.startup(() => {
     })
   })
 });
+
+// general Error Handler
+process.on('uncaughtException', function(err) {
+  console.log('Caught exception: ' + err)
+})
