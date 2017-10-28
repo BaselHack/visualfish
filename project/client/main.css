@@ -34,3 +34,7 @@ ul.msg-history li {
   width: 50%;
   float: left;
 }
+
+img {
+  width: 100%;
+}

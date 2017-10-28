@@ -17,12 +17,9 @@ module.exports = {
            r.tags = photo.categories;
            r.title = "";
            return r;
-        });
+        })
 
-        //console.log(result);
-        //return result;
-        callback(result);
-      });
-
+        callback(error, result)
+      })
     }
 }
