@@ -1,5 +1,6 @@
-var Flickr = require("flickrapi"),
-    flickrOptions = {
+var Flickr = require("flickrapi")
+
+var flickrOptions = {
         api_key: process.env.FLICKR_API_KEY,
         secret: process.env.FLICKR_API_KEY
     }
@@ -19,10 +20,18 @@ function getPhotoInfo(err, flickerQueryResult) {
     return resultReturn
 }
 
-Flickr.tokenOnly(flickrOptions, function (error, flickr) {
-    flickr.photos.search({
-        text: "red+panda"
-    }, getPhotoInfo);
-});
+function search(opts){
+    Flickr.tokenOnly(flickrOptions, function (error, flickr) {
+        flickr.photos.search({
+            text: opts.tags,
+            per_page: opts.limit
+        }, getPhotoInfo);
+    });
+}
+
+search({
+    tags: 'car',
+    limit: 2
+  })
 
 console.log("Hello World!");
