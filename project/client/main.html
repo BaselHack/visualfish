@@ -8,6 +8,15 @@
 
 <template name="hello">
   <ul class="msg-history">
+
+      {{> messages.1}}
+
+</ul>
+</template>
+
+
+<template name="hello-old">
+  <ul class="msg-history">
   {{#each messages}}
       {{> msg}}
     {{else}}
@@ -15,6 +24,7 @@
   {{/each}}
 </ul>
 </template>
+
 
 <template name="msg">
   <li>{{#emoji}}{{msg}}{{/emoji}}</li>

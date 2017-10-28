@@ -6,7 +6,7 @@ module.exports = {
       unsplashApi.init(opts.appId);
     },
 
-    search: function(opts) {
+    search: function(opts, callback) {
 
       unsplashApi.searchPhotos(opts.tags, null, 1, opts.limit, function(error, photos, link) {
         var response = photos.map
@@ -20,7 +20,8 @@ module.exports = {
         });
 
         //console.log(result);
-        return result;
+        //return result;
+        callback(result);
       });
 
     }
