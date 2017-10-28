@@ -1,1 +1,17 @@
-/* CSS declarations go here */
+body {
+  font-family: monospace;
+}
+
+ul.msg-history {
+  margin: 0;
+  list-style: none;
+  padding: 0;
+}
+
+ul.msg-history li {
+  background-color: lightblue;
+  border-radius: 5px;
+  color: darkblue;
+  padding: 5px;
+  margin-bottom: 2px;
+}

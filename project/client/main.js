@@ -1,17 +1,23 @@
-import { Template } from 'meteor/templating';
-import { ReactiveVar } from 'meteor/reactive-var';
-
-import './main.html';
+import { Template } from 'meteor/templating'
+import { ReactiveVar } from 'meteor/reactive-var'
+import { History } from '../imports/collections/history.js'
+import './main.html'
 
 Template.hello.onCreated(function helloOnCreated() {
   // counter starts at 0
   this.counter = new ReactiveVar(0);
-});
+  Meteor.subscribe('history', () => {
+    console.log('History subscription ready.')
+  })
+})
 
 Template.hello.helpers({
-  counter() {
+  counter: function() {
     return Template.instance().counter.get();
   },
+  messages: function() {
+    return History.find({})
+  }
 });
 
 Template.hello.events({

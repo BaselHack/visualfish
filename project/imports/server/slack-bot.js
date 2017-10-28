@@ -48,11 +48,6 @@ export default (opts) => {
       }
 
       // send the message to our text analysis
-      opts.msgReceiver(data.text)
-  })
-
-  slack.on('team_join', function (data) {
-      // Greet a new member that joins
-      slack.sendPM(data.user.id, 'Hellow and welcome to the team! :simple_smile: :beers:')
+      opts.msgReceiver(null, data.text)
   })
 }

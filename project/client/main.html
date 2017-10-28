@@ -1,19 +1,25 @@
 <head>
-  <title>project</title>
+  <title>Visual Fish</title>
 </head>
 
 <body>
-  <h1>Visual Fish</h1>
-
   {{> hello}}
-  {{> info}}
 </body>
 
 <template name="hello">
-  <button>Click Me</button>
-  <p>You've pressed the button {{counter}} times.</p>
+  <ul class="msg-history">
+  {{#each messages}}
+      {{> msg}}
+    {{else}}
+      {{> no_messages}}
+  {{/each}}
+</ul>
 </template>
 
-<template name="info">
-  
+<template name="msg">
+  <li>{{msg}}</li>
+</template>
+
+<template name="no_messages">
+  <li>No messages available</li>
 </template>
