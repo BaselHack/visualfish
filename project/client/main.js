@@ -16,7 +16,6 @@ Template.messages.helpers({
 
 Template.registerHelper('lastImgUrl', function(messages){
   var lastMsg = History.findOne({}, { sort: { timestamp: -1 } })
-  console.log(lastMsg)
   if(lastMsg && lastMsg.items.length > 0) {
     return lastMsg.items[0].url
   }
