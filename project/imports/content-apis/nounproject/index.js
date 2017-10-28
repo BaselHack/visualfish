@@ -8,19 +8,19 @@ module.exports = {
         });
     },
     search: function(opts, callback) {
-        this.nounApi.getIconsByTerm(opts.tags, {limit: opts.limit}, function (err, data) {
+        this.nounApi.getIconsByTerm(opts.tags, {limit: opts.limit, limit_to_public_domain: true}, function (err, data) {
             if (!err) {
-                callback(getImgUrl(data.icons));
+                callback(getImgUrl(data.icons))
             }
         });
     }
 }
 
 function getImgUrl(data){
-    var imgurls = [];
+    var imgurls = []
     for(var i in data){
-        imgurls.push({url: data[i].icon_url, title: data[i].attribution, tags: data[i].term});
+        imgurls.push({url: data[i].icon_url, title: data[i].attribution, tags: data[i].term})
     }
-    //console.log(imgurls);
-    return imgurls;
+    //console.log(imgurls)
+    return imgurls
 }
