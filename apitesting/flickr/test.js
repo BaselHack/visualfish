@@ -3,8 +3,7 @@ FlickrProject.connect({})
 FlickrProject.search({
     tags: 'car',
     limit: 2
-  }, function(err, flickerQueryResult) {
-      var result = FlickrProject.getPhotoInfo(flickerQueryResult);
+  }, function(result) {
       console.log(result)
 })
 

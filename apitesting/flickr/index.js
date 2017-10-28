@@ -2,6 +2,7 @@ var Flickr = require("flickrapi")
 
 
 
+
 // search({
 //     tags: 'car',
 //     limit: 2
@@ -14,16 +15,17 @@ module.exports = {
         secret: process.env.FLICKR_API_KEY
     }},
     search: function(opts, callback){
+        module.exports.callback= callback;
+
         Flickr.tokenOnly(this.flickrOptions, function (error, flickr) {
             flickr.photos.search({
                 text: opts.tags,
                 per_page: opts.limit
-            }, callback);
+            }, module.exports.getPhotoInfo);
         });
     },
-    getPhotoInfo: function (flickerQueryResult)
-    {
-        // if (err) { throw new Error(err); }
+    getPhotoInfo: function (err, flickerQueryResult) {
+        if (err) { throw new Error(err); }
         var resultReturn = []
         flickerQueryResult.photos.photo.forEach(function (elem) {
             var photoUrl = 'http://farm' + elem.farm + '.staticflickr.com/' + elem.server + '/' + elem.id + '_' + elem.secret + '.jpg'
@@ -33,8 +35,7 @@ module.exports = {
             photoInfo.tags = ''
             resultReturn.push(photoInfo)
         }, this);
-    
-        return resultReturn;
+        module.exports.callback(resultReturn)
     }
 };
 
