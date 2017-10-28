@@ -1,10 +1,8 @@
 import { History } from '../collections/history.js'
 
 Meteor.methods({
-  'history.insert'(text) {
+  'history.insert'(doc) {
     // check(text, String)
-    return History.insert({
-      msg: text
-    })
+    return History.insert(doc)
   }
 })

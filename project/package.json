@@ -2,11 +2,14 @@
   "name": "project",
   "private": true,
   "scripts": {
-    "start": "meteor run"
+    "start": "meteor run",
+    "exports": "set -a && . ./.env && set +a"
   },
   "dependencies": {
     "babel-runtime": "^6.26.0",
     "meteor-node-stubs": "~0.2.4",
-    "slackbotapi": "^1.3.9"
+    "slackbotapi": "^1.3.9",
+    "speakeasy-nlp": "^0.2.12",
+    "the-noun-project": "^2.0.1"
   }
 }
