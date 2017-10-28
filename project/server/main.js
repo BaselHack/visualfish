@@ -6,6 +6,8 @@ import speak from 'speakeasy-nlp'
 import nounproject from '../imports/content-apis/nounproject'
 import unsplash from '../imports/content-apis/unsplash'
 
+import './fixtures.js'
+
 const botToken = process.env.SLACK_BOT_TOKEN || ''
 
 Meteor.startup(() => {
@@ -13,6 +15,12 @@ Meteor.startup(() => {
   // connect our server with slack.com
   SlackApi({
     botToken,
+    viewModeHandler: Meteor.bindEnvironment((error, mode) => {
+      Meteor.call('state.update', 'default', {
+        identifier: 'default',
+        viewmode: mode
+      })
+    }),
     msgReceiver: Meteor.bindEnvironment((error, msg) => {
       console.log('Received: ', msg)
       // parse msg for nouns etc.

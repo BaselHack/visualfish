@@ -3,17 +3,33 @@
 </head>
 
 <body>
-  <div class="message-column">
-    {{> messages}}
-  </div>
-  <div class="visualizer-column">
-    <img src="{{lastImgUrl messages}}" />
-    <div class="share-buttons">
-      <a href="mailto:?subject=Check this Visual Fish&body=This Visual Fish is awesome {{lastImgUrl messages}}" class="btn">
-        <i class="fa fa-envelope"></i>
-      </a>
+  {{#if Template.subscriptionsReady}}
+    {{#if $eq viewmode "single"}}
+    <div class="full-column" style="background-image: url('{{lastImgUrl messages}}'); background-size: cover;">
+      <div class="share-buttons">
+        <a href="mailto:?subject=Check this Visual Fish&body=This Visual Fish is awesome {{lastImgUrl messages}}" class="btn">
+          <i class="fa fa-envelope"></i>
+        </a>
+      </div>
     </div>
-  </div>
+    {{/if}}
+
+    {{#if $eq viewmode "split"}}
+    <div class="message-column">
+      {{> messages}}
+    </div>
+    <div class="visualizer-column">
+      <img src="{{lastImgUrl messages}}" />
+      <div class="share-buttons">
+        <a href="mailto:?subject=Check this Visual Fish&body=This Visual Fish is awesome {{lastImgUrl messages}}" class="btn">
+          <i class="fa fa-envelope"></i>
+        </a>
+      </div>
+    </div>
+    {{/if}}
+  {{else}}
+    <div>LOADING</div>
+  {{/if}}
 </body>
 
 <template name="messages">

@@ -1,3 +1,5 @@
+import { Meteor } from 'meteor/meteor'
+
 // Requiring our module
 import slackAPI from 'slackbotapi'
 
@@ -37,10 +39,14 @@ export default (opts) => {
                   // Send message
                   slack.sendMsg(data.channel, 'Oh, hello @' + slack.getUser(data.user).name + ' !')
                   break
-              case 'say':
-                  var say = data.text.split('%say ')
-                  slack.sendMsg(data.channel, say[1])
-                  break
+              case 'viewmode':
+                const modes = ['split','single']
+                const mode = data.text.split('%viewmode ')
+                if(modes.indexOf(mode[1]) > -1) {
+                  opts.viewModeHandler(null, mode[1])
+                  slack.sendMsg(data.channel, 'changed viewmode to ' + mode[1])
+                }
+                break
           }
           // ok this message was a configure command
           // no need to push it to the NLP module
