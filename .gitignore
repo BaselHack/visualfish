@@ -63,4 +63,7 @@ typings/
 
 .DS_Store
 
+# Visual Studio
+launch.json
+
 # End of https://www.gitignore.io/api/node
