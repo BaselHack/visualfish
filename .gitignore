@@ -61,5 +61,7 @@ typings/
 # dotenv environment variables file
 .env
 
+# Visual Studio
+launch.json
 
 # End of https://www.gitignore.io/api/node
