@@ -10,9 +10,17 @@ module.exports = {
     search: function(opts) {
         this.nounApi.getIconsByTerm(opts.tags, {limit: opts.limit}, function (err, data) {
             if (!err) {
-                console.log(data.icons);
-                return data.icons
+                return getImgUrl(data.icons);
             }
         });
     }
+}
+
+function getImgUrl(data){
+    var imgurls = [];
+    for(var i in data){
+        imgurls.push({url: data[i].icon_url, title: data[i].attribution, tags: data[i].term});
+    }
+    //console.log(imgurls);
+    return imgurls;
 }
