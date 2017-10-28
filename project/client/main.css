@@ -15,3 +15,9 @@ ul.msg-history li {
   padding: 5px;
   margin-bottom: 2px;
 }
+
+.emoji {
+  width: 20px;
+  display: inline-block;
+  vertical-align: middle;
+}
