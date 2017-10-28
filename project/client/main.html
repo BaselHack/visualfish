@@ -3,19 +3,10 @@
 </head>
 
 <body>
-  {{> hello}}
+  {{> messages}}
 </body>
 
-<template name="hello">
-  <ul class="msg-history">
-
-      {{> messages.1}}
-
-</ul>
-</template>
-
-
-<template name="hello-old">
+<template name="messages">
   <ul class="msg-history">
   {{#each messages}}
       {{> msg}}
