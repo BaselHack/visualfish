@@ -1,0 +1,19 @@
+{
+  "name": "slack-api",
+  "version": "0.0.1",
+  "description": "Simple test setup to check out the Slack API",
+  "main": "index.js",
+  "scripts": {
+    "ngrok": "ngrok http 4390",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "Slack",
+    "API"
+  ],
+  "author": "Dirk Dresch",
+  "license": "MIT",
+  "dependencies": {
+    "slackbotapi": "^1.3.9"
+  }
+}
