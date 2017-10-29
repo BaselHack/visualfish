@@ -7,7 +7,7 @@ module.exports = {
         });
     },
     search: function(opts, callback) {
-        this.giphy.search({ q: opts.tags, rating: 'pg', limit: opts.limit}, function (err, res) {
+        this.giphy.search({ q: opts.tags, rating: opts.rating, limit: opts.limit}, function (err, res) {
             if (!err) {
                 //console.log(res)
                 callback(err, getGifUrl(res.data))
