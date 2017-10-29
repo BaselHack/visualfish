@@ -10,7 +10,9 @@ module.exports = {
     search: function(opts, callback) {
         this.nounApi.getIconsByTerm(opts.tags, {limit: opts.limit, limit_to_public_domain: true}, function (err, data) {
             if (!err) {
-                callback(err, getImgUrl(data.icons))
+              callback(err, getImgUrl(data.icons))
+            }else{
+              callback(err)
             }
         });
     }
