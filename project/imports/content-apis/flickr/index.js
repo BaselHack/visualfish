@@ -9,7 +9,7 @@ module.exports = {
     connect: function(opts) {
         this.flickrOptions = {
         api_key: process.env.FLICKR_API_KEY,
-        secret: process.env.FLICKR_API_KEY
+        secret: process.env.FLICKR_API_SECRET
     }},
     search: function(opts, callback){
         module.exports.callback= callback;
@@ -32,7 +32,7 @@ module.exports = {
             photoInfo.tags = ''
             resultReturn.push(photoInfo)
         }, this);
-        module.exports.callback(resultReturn)
+        module.exports.callback(err, resultReturn)
     }
 };
 
