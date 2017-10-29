@@ -1,8 +1,5 @@
 var Flickr = require("flickrapi")
 
-
-
-
 // search({
 //     tags: 'car',
 //     limit: 2
@@ -40,4 +37,4 @@ module.exports = {
 };
 
 
-console.log("Hello World!");
+//console.log("Hello World!");

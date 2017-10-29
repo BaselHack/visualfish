@@ -21,7 +21,7 @@ module.exports = {
 function getImgUrl(data){
     var imgurls = []
     for(var i in data){
-        imgurls.push({url: data[i].icon_url, title: data[i].attribution, tags: data[i].term})
+        imgurls.push({url: data[i].icon_url, title: data[i].attribution, tags: data[i].tags, artist: data[i].uploader})
     }
     //console.log(imgurls)
     return imgurls
