@@ -7,7 +7,9 @@ module.exports = {
         });
     },
     search: function(opts, callback) {
-      opts.rating = 'r'
+        if(opts.rating == null){
+            opts.rating = 'pg'
+        }
         this.giphy.search({ q: opts.tags, rating: opts.rating, limit: opts.limit}, function (err, res) {
             if (!err) {
                 //console.log(res)
