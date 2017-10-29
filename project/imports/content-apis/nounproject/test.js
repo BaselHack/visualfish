@@ -1,11 +1,8 @@
 var NounProject = require('./index.js')
-NounProject.connect({
-  apiKey: process.env.NOUNPROJECT_API_KEY,
-  apiSecret: process.env.NOUNPROJECT_API_SECRET
-})
+NounProject.connect()
 NounProject.search({
-  tags: 'car',
-  limit: 2
+  tags: 'cat',
+  limit: 5
 },function(results) {
   console.log("CALLBACK:" + JSON.stringify(results))
 })

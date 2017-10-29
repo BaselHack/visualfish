@@ -1,8 +1,6 @@
 var YouTubeSearch = require('./index.js')
 
-YouTubeSearch.connect({
-  apiKey: process.env.YOUTUBE_API_KEY
-})
+YouTubeSearch.connect()
 YouTubeSearch.search({
   tags: 'car',
   limit: 2

@@ -1,9 +1,9 @@
 var unsplashApi = require('unsplash-api');
 
 module.exports = {
-    connect: function(opts) {
-      console.log("key:" + process.env.UNSPLASH_APP_ID);
-      unsplashApi.init(opts.appId);
+    connect: function() {
+      //console.log("key:" + process.env.UNSPLASH_APP_ID);
+      unsplashApi.init(process.env.UNSPLASH_APP_ID);
     },
 
     search: function(opts, callback) {

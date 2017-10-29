@@ -1,10 +1,10 @@
 var NounProject = require('the-noun-project')
 
 module.exports = {
-    connect: function(opts) {
+    connect: function() {
         this.nounApi = new NounProject({
-            key: opts.apiKey,
-            secret: opts.apiSecret
+            key: process.env.NOUNPROJECT_API_KEY,
+            secret: process.env.NOUNPROJECT_API_SECRET
         });
     },
     search: function(opts, callback) {

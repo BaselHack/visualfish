@@ -1,8 +1,8 @@
 var YouTubeSearch = require('youtube-search')
 
 module.exports = {
-  connect: function(opts) {
-    this.apiKey = opts.apiKey
+  connect: function() {
+    this.apiKey = process.env.YOUTUBE_API_KEY
   },
 
   search: function(opts, cb) {
