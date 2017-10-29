@@ -52,8 +52,11 @@
 
 <template name="msg">
   <li>
-    <span class="pill">{{subject}}</span>
-    {{#emoji}}{{userMsg}}{{/emoji}}
+    <span class="pill">{{api}}</span>
+    {{#if subject}}<span class="pill"><i class="fa fa-search"></i> {{subject}}</span>{{/if}}
+    {{#if username}}<span class="pill"><i class="fa fa-user"></i> {{username}}</span>{{/if}}
+    {{>timeago timestamp}}
+    <div class="msg-txt">{{#emoji}}{{userMsg}}{{/emoji}}</div>
   </li>
 </template>
 

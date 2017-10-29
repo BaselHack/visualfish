@@ -20,11 +20,11 @@ Meteor.startup(() => {
         viewmode: mode
       })
     }),
-    msgReceiver: Meteor.bindEnvironment((error, msg) => {
+    msgReceiver: Meteor.bindEnvironment((error, ret) => {
       // parse msg for nouns etc.
-      const query = WordAnalyer(msg)
+      const query = WordAnalyer(ret.msg)
       // query the APIs and push to DB
-      ContentSelect(msg, query)
+      ContentSelect(ret.msg, query, ret.username)
     })
   })
 })

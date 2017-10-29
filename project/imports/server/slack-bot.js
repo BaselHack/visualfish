@@ -54,6 +54,9 @@ export default (opts) => {
       }
 
       // send the message to our text analysis
-      opts.msgReceiver(null, data.text)
+      opts.msgReceiver(null, {
+        username: slack.getUser(data.user).name,
+        msg: data.text
+      })
   })
 }

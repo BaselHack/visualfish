@@ -26,7 +26,7 @@ ul.msg-history {
 
 ul.msg-history li {
   background-color: lightblue;
-  border-radius: 20px;
+  border-radius: 0 20px 20px 0;
   color: darkblue;
   padding: 7px;
   margin-bottom: 2px;
@@ -41,6 +41,13 @@ ul.msg-history li {
 .message-column, .visualizer-column {
   width: 50%;
   float: left;
+  max-height: 100vh;
+}
+
+.msg-txt {
+  font-size: 16px;
+  padding: 9px;
+  padding-bottom: 2px;
 }
 
 .message-column {

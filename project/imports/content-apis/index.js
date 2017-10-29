@@ -2,11 +2,12 @@ import { Meteor } from 'meteor/meteor'
 import nounproject from './nounproject'
 import unsplash from './unsplash'
 import giphy from './giphy'
+import flickr from './flickr'
 
-export default (userMsg, query) => {
+export default (userMsg, query, username) => {
   // available API plugins
-  const apis = ['giphy','nounproject','unsplash'] // 'nounproject','unsplash', 
-  const apiCtrl = { unsplash, nounproject, giphy }
+  const apis = ['flickr'] // 'giphy','nounproject','unsplash', 'flickr'
+  const apiCtrl = { flickr }
   const usedApi = []
   // randomly select a API of the available ones
   const selectApi = () => {
@@ -37,7 +38,8 @@ export default (userMsg, query) => {
         type: 'image',
         api,
         items: [{url: 'visualfish.png'}],
-        timestamp: t.getTime()
+        timestamp: t.getTime(),
+        username
       })
       return
     }
@@ -65,7 +67,8 @@ export default (userMsg, query) => {
               type: 'image',
               api,
               items: res,
-              timestamp: t.getTime()
+              timestamp: t.getTime(),
+              username
             })
           } else {
             console.log(api + ' returned no results use another one.')
