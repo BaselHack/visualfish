@@ -4,6 +4,12 @@ body {
   margin: 0;
 }
 
+iframe {
+  border: none;
+  width: 90%;
+  height: 100vh;
+}
+
 .pill {
   background-color: lightcyan;
   border-radius: 20px;

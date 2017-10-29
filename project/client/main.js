@@ -25,6 +25,14 @@ Template.registerHelper('lastImgUrl', function(messages){
   }
 })
 
+Template.registerHelper('lastItemApi', function(messages){
+  const lastMsg = History.findOne({}, { sort: { timestamp: -1 } })
+  if(lastMsg && lastMsg.items.length > 0) {
+    console.log('lastItemApi', lastMsg.api)
+    return lastMsg.api
+  }
+})
+
 Template.registerHelper('viewmode', function(){
   const state = State.findOne({identifier: 'default'})
   if(state) return state.viewmode

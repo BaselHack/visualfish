@@ -5,13 +5,17 @@
 <body>
   {{#if Template.subscriptionsReady}}
     {{#if $eq viewmode "single"}}
-    <div class="full-column" style="background-image: url('{{lastImgUrl messages}}'); background-size: cover;">
-      <div class="share-buttons">
-        <a href="mailto:?subject=Check this Visual Fish&body=This Visual Fish is awesome {{lastImgUrl messages}}" class="btn">
-          <i class="fa fa-envelope"></i>
-        </a>
+      {{#if $eq lastItemApi "giphy"}}
+      <iframe src="{{lastImgUrl messages}}" style="width: 100vw;"></iframe>
+      {{else}}
+      <div class="full-column" style="background-image: url('{{lastImgUrl messages}}'); background-size: cover;">
+        <div class="share-buttons">
+          <a href="mailto:?subject=Check this Visual Fish&body=This Visual Fish is awesome {{lastImgUrl messages}}" class="btn">
+            <i class="fa fa-envelope"></i>
+          </a>
+        </div>
       </div>
-    </div>
+      {{/if}}
     {{/if}}
 
     {{#if $eq viewmode "split"}}
@@ -19,12 +23,16 @@
       {{> messages}}
     </div>
     <div class="visualizer-column">
+      {{#if $eq lastItemApi "giphy"}}
+      <iframe src="{{lastImgUrl messages}}"></iframe>
+      {{else}}
       <img src="{{lastImgUrl messages}}" />
       <div class="share-buttons">
         <a href="mailto:?subject=Check this Visual Fish&body=This Visual Fish is awesome {{lastImgUrl messages}}" class="btn">
           <i class="fa fa-envelope"></i>
         </a>
       </div>
+      {{/if}}
     </div>
     {{/if}}
   {{else}}
