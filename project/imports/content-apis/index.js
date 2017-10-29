@@ -2,11 +2,12 @@ import { Meteor } from 'meteor/meteor'
 import nounproject from './nounproject'
 import unsplash from './unsplash'
 import giphy from './giphy'
+import flickr from './flickr'
 
 export default (userMsg, query) => {
   // available API plugins
-  const apis = ['giphy','nounproject','unsplash'] // 'nounproject','unsplash', 
-  const apiCtrl = { unsplash, nounproject, giphy }
+  const apis = ['giphy','nounproject','unsplash', 'flickr'] // 'giphy','nounproject','unsplash'
+  const apiCtrl = { unsplash, nounproject, giphy, flickr }
   const usedApi = []
   // randomly select a API of the available ones
   const selectApi = () => {
