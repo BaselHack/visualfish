@@ -2,9 +2,8 @@ import { Meteor } from 'meteor/meteor'
 import SlackApi from '../imports/server/slack-bot.js'
 import Publish from '../imports/server/publish.js'
 import Methods from '../imports/server/methods.js'
-import speak from 'speakeasy-nlp'
-import nounproject from '../imports/content-apis/nounproject'
-import unsplash from '../imports/content-apis/unsplash'
+import WordAnalyer from '../imports/analyzer'
+import ContentSelect from '../imports/content-apis'
 
 import './fixtures.js'
 
@@ -22,35 +21,13 @@ Meteor.startup(() => {
       })
     }),
     msgReceiver: Meteor.bindEnvironment((error, msg) => {
-      console.log('Received: ', msg)
       // parse msg for nouns etc.
-      const subject = speak.classify(msg).subject
-      console.log('Subject: ', subject)
-      unsplash.connect({
-        appId: process.env.UNSPLASH_APP_ID,
-        appSecret: process.env.UNSPLASH_SECRET
-      })
-      unsplash.search({
-        tags: subject,
-        limit: 1
-      }, Meteor.bindEnvironment(
-          (err, res) => {
-            console.log('Noun results: ', res)
-            const t = new Date()
-            // push message to mongoDB
-            const result = Meteor.call('history.insert', {
-              userMsg: msg,
-              subject,
-              type: 'image',
-              items: res,
-              timestamp: t.getTime()
-            })
-          }
-        )
-      )
+      const query = WordAnalyer(msg)
+      // query the APIs and push to DB
+      ContentSelect(msg, query)
     })
   })
-});
+})
 
 // general Error Handler
 process.on('uncaughtException', function(err) {
