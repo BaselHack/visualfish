@@ -6,7 +6,7 @@ import flickr from './flickr'
 
 export default (userMsg, query, username) => {
   // available API plugins
-  const apis = ['giphy','nounproject','unsplash','flickr'] // 'giphy','nounproject','unsplash', 'flickr'
+  const apis = ['giphy','nounproject','unsplash'] // 'giphy','nounproject','unsplash', 'flickr'
   const apiCtrl = { unsplash, nounproject, giphy, flickr }
   const usedApi = []
   // randomly select a API of the available ones

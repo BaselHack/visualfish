@@ -1,6 +1,6 @@
 <head>
   <title>Visual Fish</title>
-  <link href="https://fonts.googleapis.com/css?family=Dosis" rel="stylesheet"> 
+  <link href="https://fonts.googleapis.com/css?family=Dosis" rel="stylesheet">
 </head>
 
 <body>
@@ -53,7 +53,7 @@
 
 <template name="msg">
   <li>
-    <span class="pill">{{api}}</span>
+    {{#if api}}<span class="pill">{{api}}</span>{{/if}}
     {{#if subject}}<span class="pill"><i class="fa fa-search"></i> {{subject}}</span>{{/if}}
     {{#if username}}<span class="pill"><i class="fa fa-user"></i> {{username}}</span>{{/if}}
     {{>timeago timestamp}}

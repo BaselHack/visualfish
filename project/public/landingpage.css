@@ -1,0 +1,41 @@
+body {
+
+  background-color: #C9485D;
+}
+
+.logo {
+  width: 70%;
+  height: 70%;
+
+  display: block;
+    margin: 20px auto;
+}
+
+
+
+.start {
+  display: flex;
+    align-items: center;
+}
+
+h1 {
+  text-align: center;
+}
+
+
+.Title {
+  font-size: 800%;
+}
+
+h4 {
+  font-size: 400%;
+
+}
+
+h1 {font-family: 'Dosis', sans-serif;
+  font-weight: 700;
+}
+
+body {
+  text-decoration: none !important;
+}

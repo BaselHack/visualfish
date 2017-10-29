@@ -16,17 +16,19 @@ Template.messages.onCreated(function messagesOnCreated() {
           state.currentMsg = lastMsg
           State.update({_id: state._id}, state)
         }
+        $('.message-column').animate({
+            scrollTop: $('.message-column').get(0).scrollHeight
+          }, 2000)
       })
     })
     self.subscribe('state', () => {
       console.log('State subscription ready.')
     })
-
 })
 
 Template.messages.helpers({
   messages: function() {
-    return History.find({}, { sort: { timestamp: -1 } })
+    return History.find({}, { sort: { timestamp: 1 } })
   }
 })
 
