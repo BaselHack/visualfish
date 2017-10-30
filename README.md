@@ -1,4 +1,4 @@
-# 05_visualfish
+# 05_visualfish <img src="/project/public/visualfish.png" width="60">
 ## VisualFish: A chatbot for visualizing chats
 The VisualFish chatbot was developed during the BaselHack 2017.
 It monitors a slack-channel and finds images from various image services to displays graphical representations of the messages inside the channel.
